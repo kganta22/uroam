@@ -1,0 +1,253 @@
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero-section {
+  position: relative;
+  height: 900px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* teks di tengah vertikal */
+  align-items: flex-start;
+  padding: 0 70px;
+  /* jaga jarak dari kiri */
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(255, 255, 255, 0.137), rgba(0, 0, 0, 0.434));
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  padding: 0px 70px;
+  margin-left: 0;
+}
+
+.hero-title {
+  color: #fff;
+  font-weight: 700;
+  font-size: 128px;
+  line-height: 0.95;
+  text-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+  margin: 0;
+  max-width: 700px;
+}
+
+/* Action Buttons */
+.hero-buttons {
+  position: absolute;
+  top: 60px;
+  /* tetap di atas hero */
+  right: 80px;
+  display: flex;
+  gap: 20px;
+  z-index: 3;
+  /* pastikan tombol di atas hero overlay */
+}
+
+.btn-signin,
+.btn-join {
+  border-radius: 45px;
+  font-family: "Solway", serif;
+  font-weight: 600;
+  font-size: 20px;
+  padding: 16px 40px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-signin {
+  background: #e15814d5;
+  color: #fff;
+  border: none;
+  border: 2px solid #ffffff;
+}
+
+.btn-join {
+  background: #ffffffd5;
+  color: #e15814;
+  border: 2px solid #e15814;
+}
+
+/* Hover efek */
+.btn-signin:hover,
+.btn-join:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-signin:hover {
+  background: #e15814;
+}
+
+.btn-join:hover {
+  background: #ffffff;
+}
+
+/* ============================================
+   FEATURES
+   ============================================ */
+.feature .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-1,
+.feature-2,
+.feature-3 {
+  padding: 56px 0;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  align-items: center;
+  gap: 40px;
+}
+
+.feature-1 .feature-left h2,
+.feature-2 .feature-right h2,
+.feature-3 .feature-right h2 {
+  color: #e15814;
+  font-size: 48px;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.feature-1-text,
+.feature-2-text,
+.feature-3-text {
+  font-size: 18px;
+  color: #222;
+}
+
+.feature-1-img,
+.feature-2-img,
+.feature-3-img {
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.feature-2,
+.feature-3 {
+  grid-template-columns: 420px 1fr;
+}
+
+/* ============================================
+   TESTIMONIALS
+   ============================================ */
+.testimonials {
+  background: #fff9f5;
+  padding: 80px 24px;
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+  flex-wrap: wrap;
+  border-top: 1px solid #c5c5c5;
+  margin-top: 40px;
+}
+
+.testimonial-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 28px 24px;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 8px 24px rgba(225, 88, 20, 0.15);
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  border: 2px solid rgba(225, 88, 20, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 10px 10px 10px rgba(225, 88, 20, 0.25);
+}
+
+.testimonial-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex: 0 0 64px;
+  border: 3px solid #e15814;
+}
+
+.testimonial-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.testimonial-name {
+  font-weight: 700;
+  font-size: 18px;
+  color: #e15814;
+}
+
+.testimonial-role {
+  font-size: 14px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.testimonial-text {
+  font-size: 14px;
+  color: #333;
+  margin-top: 12px;
+  line-height: 1.5;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 900px) {
+  .hero-title {
+    font-size: 72px;
+  }
+
+  .feature-1,
+  .feature-2,
+  .feature-3 {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 36px 0;
+  }
+
+  .hero-section {
+    height: 560px;
+  }
+
+  .btn-signin {
+    left: 20px;
+    top: 80px;
+    min-width: 200px;
+    font-size: 16px;
+    height: 50px;
+  }
+
+  .btn-join {
+    left: 240px;
+    top: 80px;
+    min-width: 150px;
+    font-size: 16px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 44px;
+  }
+
+  .testimonial-card {
+    max-width: 100%;
+  }
+}

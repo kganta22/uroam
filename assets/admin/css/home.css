@@ -1,0 +1,426 @@
+/* =========================
+   TOKENS — disamakan dengan login.css
+   ========================= */
+:root {
+  --font: "Solway", serif;
+
+  --c-text: #1a1a1a;
+  --c-muted: #6b6b6b;
+  --c-bg: #ffffff;
+
+  --c-primary: #11d4c8;
+  /* turquoise */
+  --c-accent: #e15814;
+  /* brand orange */
+  --c-line: #e8e8e8;
+
+  --c-input-bg: #f4f4f4;
+  --c-input-bd: #cacaca;
+
+  --c-badge-ok-bg: #cbefd7;
+  --c-badge-ok-tx: #1f6b3f;
+  --c-badge-rej-bg: #f5cccc;
+  --c-badge-rej-tx: #8a3434;
+
+  --container: 1140px;
+
+  --radius-lg: 10px;
+  /* match login.css card radius */
+  --radius-md: 5px;
+  /* match login.css input radius */
+  --shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+  /* match login.css shadow */
+}
+
+/* =========================
+     BASE
+     ========================= */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font);
+  color: var(--c-text);
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+/* =========================
+     HERO (gradient) + TOOLBAR
+     ========================= */
+.hm-main {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 80px;
+}
+
+.hm-hero {
+  padding: 16px 0 16px;
+}
+
+.hm-toolbar {
+  margin: 0 auto;
+  margin-left: 50px;
+  margin-right: 50px;
+  padding: 12px 16px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.hm-filters {
+  display: flex;
+  gap: 20px;
+  align-items: end;
+  flex-wrap: wrap;
+}
+
+.hm-filter {
+  display: grid;
+  gap: 6px;
+}
+
+.hm-filter>span {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* Input & select — gunakan token input login.css */
+.hm-input-icon {
+  position: relative;
+  width: 220px;
+}
+
+.hm-input-icon input {
+  width: 100%;
+  padding: 10px 34px 10px 12px;
+  background: #ffffff;
+  border: 1px solid var(--c-input-bd);
+  border-radius: var(--radius-md);
+  outline: none;
+}
+
+.hm-input-icon img {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  opacity: 0.65;
+}
+
+.hm-select select {
+  min-width: 220px;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  background: #fff;
+  border: 2px solid var(--c-input-bd);
+}
+
+.hm-result-hint {
+  color: var(--c-muted);
+  font-size: 14px;
+}
+
+.hm-create {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #2563eb;
+  font-weight: 500;
+}
+
+.hm-create img {
+  width: 18px;
+  height: 18px;
+}
+
+.hm-create-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 6px;
+}
+
+/* =========================
+     TABLE LIST
+     ========================= */
+.hm-list {
+  margin: 16px auto 0;
+  margin-left: 50px;
+  margin-right: 50px;
+  padding: 0 16px;
+}
+
+.hm-table {
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-lg);
+  background: #fff;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.hm-thead {
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr) 220px 200px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--c-line);
+  font-weight: 700;
+}
+
+.hm-row {
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr) 220px 200px;
+  align-items: center;
+  padding: 14px;
+  border-top: 1px solid var(--c-line);
+}
+
+.hm-row:first-of-type {
+  border-top: none;
+}
+
+.col-product {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.thumb {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  border: 1px solid var(--c-line);
+}
+
+.meta {
+  display: grid;
+  gap: 6px;
+}
+
+.meta .title {
+  font-weight: 700;
+}
+
+.rating {
+  display: flex;
+  gap: 2px;
+  opacity: 0.65;
+}
+
+.rating img {
+  width: 14px;
+  height: 14px;
+}
+
+.col-ref {
+  color: #333;
+}
+
+.col-status {
+  display: flex;
+  align-items: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.badge--ok {
+  background: var(--c-badge-ok-bg);
+  color: var(--c-badge-ok-tx);
+}
+
+.badge--reject {
+  background: var(--c-badge-rej-bg);
+  color: var(--c-badge-rej-tx);
+}
+
+.col-action {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+/* Buttons — disamakan dengan login.css */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  border: 2px solid #5aa0e0;
+  color: #1677c5;
+  background: #fff;
+  transition: 0.2s ease;
+}
+
+.btn:hover {
+  background: #eff6ff;
+}
+
+.btn--outline-danger {
+  border-color: #d66f6f;
+  color: #b84040;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.btn--outline-danger:hover {
+  background: #fff0f0;
+}
+
+/* =========================
+   MODAL DELETE
+   ========================= */
+:root {
+  --md-radius: 28px;
+  --md-shadow: var(--shadow);
+  --md-danger: #c3413b;
+  --md-danger-bd: #b33833;
+  --md-link: #1677c5;
+}
+
+.md {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 1000;
+}
+
+.md.show {
+  display: block;
+}
+
+.md__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.38);
+  backdrop-filter: blur(2px);
+  cursor: default;
+}
+
+.md__card {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: min(640px, calc(100% - 32px));
+  max-height: 200px;
+  background: #fff;
+  border-radius: var(--md-radius);
+  box-shadow: var(--md-shadow);
+  border: 1px solid #eee;
+  padding: clamp(18px, 3.5vw, 28px);
+}
+
+.md__close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-size: 22px;
+  opacity: 0.7;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.md__close:hover {
+  opacity: 1;
+}
+
+.md__title {
+  margin: 0 0 10px;
+  font-size: clamp(20px, 3.4vw, 26px);
+  font-weight: 800;
+}
+
+.md__text {
+  margin: 0 0 18px;
+  color: #333;
+}
+
+.md__actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 6px;
+}
+
+.md-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.18s ease;
+}
+
+.md-btn--ghost {
+  color: #5aa0e0;
+  border: 2px solid #5aa0e0;
+  background: #fff;
+  cursor: pointer;
+}
+
+.md-btn--ghost:hover {
+  background: #f3f8ff;
+}
+
+.md-btn--danger {
+  color: #fff;
+  background: var(--md-danger);
+  border: 2px solid var(--md-danger-bd);
+  cursor: pointer;
+}
+
+.md-btn--danger:hover {
+  filter: brightness(0.96);
+}
+
+.md {
+  display: none;
+}
+
+.md.show {
+  display: block;
+}
+
+@media (max-width: 420px) {
+  .md__card {
+    padding: 16px;
+  }
+
+  .md__actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+}

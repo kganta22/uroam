@@ -1,0 +1,257 @@
+/* Log in and security page */
+:root {
+  --orange: #ff8c42;
+  --text: #1a1a1a;
+  --muted: #666;
+  --border: #d8d8d8;
+}
+
+body {
+  background: #ffffff;
+  font-family: 'Solway', serif;
+}
+
+.security-wrapper {
+  padding: 180px 16px 120px;
+  display: flex;
+  justify-content: center;
+}
+
+.security-card {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 20px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+  max-width: 640px;
+  width: 100%;
+  padding: 32px 32px 40px;
+}
+
+.security-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.back-btn {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text);
+  padding: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.back-btn:hover {
+  opacity: 0.7;
+  transform: translateX(-2px);
+}
+
+.back-btn img {
+  width: 22px;
+  height: 22px;
+}
+
+.security-title {
+  flex: 1;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+
+.header-spacer {
+  width: 36px;
+}
+
+.security-section {
+  margin-top: 8px;
+}
+
+.section-title {
+  margin: 0 0 16px 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.security-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.input-with-icon {
+  position: relative;
+}
+
+.input-with-icon input {
+  width: 100%;
+  padding: 14px 48px 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background: #fff;
+}
+
+.input-with-icon input:focus {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px rgba(255, 140, 66, 0.12);
+}
+
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  padding: 6px;
+  cursor: pointer;
+}
+
+.toggle-password img {
+  width: 20px;
+  height: 20px;
+}
+
+.error-message {
+  margin-top: 6px;
+  padding: 10px 12px;
+  background: #fee;
+  border: 1px solid #fcc;
+  border-radius: 10px;
+  color: #c0392b;
+  font-size: 13px;
+}
+
+.pwd-hint {
+  font-size: 13px;
+  color: var(--ink, #1a1a1a);
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 5px 0 0 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.pwd-hint-title {
+  font-weight: 700;
+  margin: 0 0 6px;
+  font-size: 13px;
+}
+
+.pwd-criteria {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.criteria-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.criteria-item::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  border: 1px solid #c4c4c4;
+  background: #f0f0f0;
+}
+
+.criteria-pass {
+  color: #1f7a2f;
+}
+
+.criteria-pass::before {
+  background: #1f7a2f;
+  border-color: #1f7a2f;
+}
+
+.criteria-fail {
+  color: #c12b3a;
+}
+
+.criteria-fail::before {
+  background: #c12b3a;
+  border-color: #c12b3a;
+}
+
+.form-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.forgot-link {
+  font-size: 14px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+.btn-primary {
+  padding: 12px 22px;
+  border-radius: 14px;
+  border: 1px solid var(--orange);
+  background: var(--orange);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: #e6762c;
+  box-shadow: 0 6px 16px rgba(255, 140, 66, 0.35);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 720px) {
+  .security-card {
+    padding: 24px 20px 32px;
+  }
+
+  .security-title {
+    font-size: 20px;
+  }
+
+  .form-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .btn-primary {
+    width: 100%;
+    text-align: center;
+  }
+}

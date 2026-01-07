@@ -1,0 +1,81 @@
+/* ============================================
+   GLOBAL BASE STYLE
+   ============================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: 'Solway', serif;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: "Solway", serif;
+  background: #ffffff;
+  color: #111;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-wrapper {
+  position: relative;
+  padding-top: 80px;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ============================================
+   NAVBAR (HEADER)
+   ============================================ */
+.header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 80px;
+  background: #ffffff;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 92px;
+}
+
+.header a {
+  display: inline-block;
+  line-height: 0;
+}
+
+.header .logo {
+  display: block;
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+}
+
+.language-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 43px;
+  cursor: pointer;
+}
+
+.language-selector img {
+  width: 54px;
+  height: 28.2px;
+  object-fit: contain;
+}

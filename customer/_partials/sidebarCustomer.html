@@ -1,0 +1,68 @@
+<?php
+// Ensure session exists so login state is available even when sidebar loads before navbar
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
+
+$isLoggedIn = isset($_SESSION['customer_id']) && !empty($_SESSION['customer_id']);
+?>
+
+<a href="/PROGNET/customer/tours.php">
+  <img id="sidebarLogo" src="/PROGNET/images/logo.png" alt="uRoam Logo" class="sidebar-floating-logo">
+</a>
+
+<div id="sidebar" class="sidebar">
+  <nav class="sidebar-menu">
+    <a href="/PROGNET/customer/tours.php" class="sidebar-item">
+      <img src="/PROGNET/images/icons/airplane_c.svg" class="sidebar-icon" alt="">
+      <span class="sidebar-text">Tours</span>
+    </a>
+
+    <?php if ($isLoggedIn): ?>
+
+    <div class="sidebar-item sidebar-dropdown" id="orderRequestMenu">
+      <div class="sidebar-dropdown-header">
+        <img src="/PROGNET/images/icons/book_c.svg" class="sidebar-icon" alt="">
+        <span class="sidebar-text">Order Request</span>
+        <img src="/PROGNET/images/icons/dropdown.svg" class="sidebar-dropdown-icon" alt="">
+      </div>
+
+      <div class="sidebar-dropdown-menu">
+        <a href="/PROGNET/customer/orders/reviews.php" class="sidebar-subitem">
+          <span class="sidebar-text">Order Reviews</span>
+        </a>
+        <a href="/PROGNET/customer/orders/payment.php" class="sidebar-subitem">
+          <span class="sidebar-text">Order Payment</span>
+        </a>
+        <a href="/PROGNET/customer/orders/rejected.php" class="sidebar-subitem">
+          <span class="sidebar-text">Order Rejected</span>
+        </a>
+      </div>
+    </div>
+
+    <a href="/PROGNET/customer/my-trip.php" class="sidebar-item">
+      <img src="/PROGNET/images/icons/suitcase_c.svg" class="sidebar-icon" alt="">
+      <span class="sidebar-text">My Trip</span>
+    </a>
+
+    <a href="/PROGNET/customer/my-reviews.php" class="sidebar-item">
+      <img src="/PROGNET/images/icons/star_c.svg" class="sidebar-icon" alt="">
+      <span class="sidebar-text">My Reviews</span>
+    </a>
+
+    <a href="/PROGNET/customer/finance.php" class="sidebar-item">
+      <img src="/PROGNET/images/icons/finance.svg" class="sidebar-icon" alt="">
+      <span class="sidebar-text">Finance</span>
+    </a>
+    <?php endif; ?>
+
+    <a href="/PROGNET/customer/contact.php" class="sidebar-item">
+      <img src="/PROGNET/images/icons/contact_c.svg" class="sidebar-icon" alt="">
+      <span class="sidebar-text">Contact Us</span>
+    </a>
+  </nav>
+</div>
+
+<button id="sidebarToggle" class="sidebar-hamburger">
+  <img src="/PROGNET/images/icons/burger.svg" alt="">
+</button>

@@ -1,0 +1,237 @@
+/* ============================================
+   TOKENS (bisa dipindah ke variables.css)
+   ============================================ */
+:root {
+  --font: "Solway", serif;
+
+  --c-text: #1a1a1a;
+  --c-muted: #6b6b6b;
+  --c-bg: #ffffff;
+
+  --c-primary: #11d4c8; /* turquoise (gradient kanan atas) */
+  --c-accent: #e15814;  /* oranye brand (tombol & footer) */
+
+  --c-input-bg: #ffffff; /* peach muda (isi input) */
+  --c-input-bd: #cacaca; /* peach tua (garis input) */
+
+  --container: 1120px;  /* max width konten */
+  --card-max: 940px;    /* max width kartu form */
+  --radius-xl: 28px;    /* radius kartu */
+  --radius-md: 14px;    /* radius input/tombol */
+  --shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+}
+
+
+body.lg {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-header {
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 12px 16px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.login-header__inner {
+  width: 100%;
+  margin: 0 auto;
+  margin-left: 100px;
+  padding-left: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.login-header__logo {
+  height: 46px;
+  width: auto;
+  display: block;
+}
+
+/* ============================================
+   HERO (gradient latar) + CARD
+   ============================================ */
+.lg-main {
+  min-height: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.lg-hero {
+  padding: 0 16px;
+  margin-top: 0;
+  min-height: calc(100vh - 120px);
+  display: grid;
+  place-items: center;
+}
+
+.lg-card {
+  width: 100%;
+  max-width: var(--card-max);
+  background: #fff;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+  padding: 28px 32px;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  text-align: left;
+}
+
+.lg-title {
+  margin: 0 0 22px;
+  text-align: center;
+  font-size: clamp(22px, 3vw, 35px);
+  line-height: 1.2;
+}
+
+/* ============================================
+   FORM
+   ============================================ */
+.lg-form {
+  display: grid;
+  gap: 22px;
+}
+
+.lg-field {
+  position: relative;
+  display: grid;
+  gap: 8px;
+}
+
+.lg-label {
+  font-weight: 700;
+    font-size: clamp(18px, 2.2vw, 20px);
+}
+
+.lg-req {
+  color: var(--c-accent);
+}
+
+/* Link "Forgot password?" rata kanan sejajar label */
+.lg-help {
+  position: static;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1677c5;
+  text-decoration: underline;
+  margin-top: 6px;
+  text-align: right;
+  width: 100%;
+}
+
+.lg-input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--c-input-bd);
+  background: var(--c-input-bg);
+  outline: none;
+  font-size: 16px;
+}
+
+.lg-input:focus {
+  border-color: var(--c-accent);
+  box-shadow: 0 0 0 3px rgba(225, 88, 20, 0.322);
+}
+
+/* Tombol */
+.lg-actions {
+  margin-top: 6px;
+  display: flex;
+  justify-content: center;
+}
+
+.lg-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 12px 22px;
+  font-weight: 700;
+  font-size: 18px;
+  transition: 0.2s ease;
+}
+
+.lg-btn--primary {
+  background: var(--c-accent);
+  text-decoration: none;
+  color: #ffffff;
+  cursor: pointer;
+  border: 2px solid var(--c-accent);
+  min-width: 200px; /* lebar minimal tombol */
+}
+
+.lg-btn--primary:hover {
+  filter: brightness(1.10);
+}
+
+.lg-btn--primary:active {
+  filter: brightness(0.70);
+}
+
+.lg-alt {
+  margin: 14px 0 0;
+  text-align: center;
+  color: var(--c-muted);
+}
+
+.lg-link {
+  color: #1677c5;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 960px) {
+  .lg-footer__cols {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .lg-footer__cols {
+    grid-template-columns: 1fr;
+  }
+
+  .lg-card {
+    padding: 20px;
+  }
+
+  .lg-help {
+    position: static;
+    transform: none;
+    justify-self: end;
+    margin-top: -4px;
+  }
+}
+
+
+/* ============================================
+  ALERT
+   ============================================ */
+.lg-alert {
+  background: #ff4d4f;        /* merah elegan */
+  color: white;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 18px;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

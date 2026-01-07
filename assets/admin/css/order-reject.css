@@ -1,0 +1,65 @@
+/* ============================
+   REJECT INFO (READ ONLY)
+============================= */
+
+.bk-reject-info {
+    margin-top: 15px;
+    padding: 18px;
+    border-left: 2px solid #d9534f;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #fff1f1, #ffffff);
+    display: none;
+}
+
+.bk-reject-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #9a0000;
+}
+
+.bk-reject-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 15px;
+}
+
+.bk-reject-label {
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 5px;
+}
+
+.bk-reject-value {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.bk-reject-reason {
+    background: #fff;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #f1c7c7;
+    font-size: 14px;
+}
+
+.bk-reject-btn {
+    margin-left: auto;
+    cursor: pointer;
+    color: #d9534f;
+    background-color: white;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 7px 16px;
+    border: 1px solid #d9534f;
+    border-radius: 25px;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+.bk-reject-btn:hover {
+    background: #ffe7e7;
+}

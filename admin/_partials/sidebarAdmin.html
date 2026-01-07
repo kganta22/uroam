@@ -1,0 +1,63 @@
+<a href="/PROGNET/admin/home.php">
+  <img id="sidebarLogo" src="/PROGNET/images/logo.png" alt="uRoam Logo" class="sidebar-floating-logo">
+</a>
+
+<div id="sidebar" class="sidebar">
+  <nav class="sidebar-menu">
+    <a href="/PROGNET/admin/home.php" class="sidebar-item">
+      <img src="/PROGNET/images/icons/home.svg" class="sidebar-icon" alt="">
+      <span class="sidebar-text">Home</span>
+    </a>
+
+    <div class="sidebar-item sidebar-dropdown" id="orderRequestMenu">
+      <div class="sidebar-dropdown-header">
+        <img src="/PROGNET/images/icons/cart.svg" class="sidebar-icon" alt="">
+        <span class="sidebar-text">Order Request</span>
+        <img src="/PROGNET/images/icons/dropdown.svg" class="sidebar-dropdown-icon" alt="">
+      </div>
+
+      <div class="sidebar-dropdown-menu">
+        <a href="/PROGNET/admin/orders/reviews.php" class="sidebar-subitem">
+          <span class="sidebar-text">Order Reviews</span>
+        </a>
+        <a href="/PROGNET/admin/orders/pending-payment.php" class="sidebar-subitem">
+          <span class="sidebar-text">Pending Payment</span>
+        </a>
+        <a href="/PROGNET/admin/orders/reject.php" class="sidebar-subitem">
+          <span class="sidebar-text">Order Rejected</span>
+        </a>
+      </div>
+    </div>
+
+    <a href="/PROGNET/admin/bookings.php" class="sidebar-item">
+      <img src="/PROGNET/images/icons/bookings.svg" class="sidebar-icon" alt="">
+      <span class="sidebar-text">Bookings</span>
+    </a>
+
+    <div class="sidebar-item sidebar-dropdown" id="performanceMenu">
+      <div class="sidebar-dropdown-header">
+        <img src="/PROGNET/images/icons/performances.svg" class="sidebar-icon" alt="">
+        <span class="sidebar-text">Performances</span>
+        <img src="/PROGNET/images/icons/dropdown.svg" class="sidebar-dropdown-icon" alt="">
+      </div>
+
+      <div class="sidebar-dropdown-menu">
+        <a href="/PROGNET/admin/performances/customer-reviews.php" class="sidebar-subitem">
+          <span class="sidebar-text">Customer Reviews</span>
+        </a>
+        <a href="/PROGNET/admin/performances/analytic.php" class="sidebar-subitem">
+          <span class="sidebar-text">Analytic</span>
+        </a>
+      </div>
+    </div>
+
+    <a href="/PROGNET/admin/finance.php" class="sidebar-item">
+      <img src="/PROGNET/images/icons/finance.svg" class="sidebar-icon" alt="">
+      <span class="sidebar-text">Finance</span>
+    </a>
+  </nav>
+</div>
+
+<button id="sidebarToggle" class="sidebar-hamburger">
+  <img src="/PROGNET/images/icons/burger.svg" alt="">
+</button>

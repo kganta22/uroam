@@ -1,0 +1,174 @@
+/* ============================
+   ACTION BUTTONS
+============================= */
+/* ACCEPT */
+.bk-accept-btn {
+  background: transparent;
+  border: 1px solid #28a745;
+  color: #28a745;
+  padding: 7px 16px;
+  border-radius: 25px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.bk-accept-btn:hover {
+  background: #eaf7ee;
+}
+
+/* REJECT (SAMA DENGAN CANCEL LAMA) */
+.bk-reject-btn {
+  background: transparent;
+  border: 1px solid #d9534f;
+  color: #d9534f;
+  padding: 7px 16px;
+  border-radius: 25px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.bk-reject-btn:hover {
+  background: #ffe7e7;
+}
+
+.bk-reject-box {
+  margin-top: 15px;
+  padding: 18px;
+  border-left: 2px solid #d9534f;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #fff1f1, #ffffff);
+  display: none;
+}
+
+.bk-reject-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #9a0000;
+}
+
+.bk-reject-box textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.bk-send-reject {
+  background: #d9534f;
+  color: #fff;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 25px;
+  margin-top: 12px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.bk-send-reject:hover {
+  background: #c64542;
+}
+
+.bk-actions-right {
+  margin-left: auto;
+  display: flex;
+  gap: 12px;
+}
+
+.md {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 1000;
+}
+
+.md.show {
+  display: block;
+}
+
+.md__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.38);
+  backdrop-filter: blur(2px);
+  cursor: default;
+}
+
+.md__card {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: min(640px, calc(100% - 32px));
+  max-height: 200px;
+  background: #fff;
+  border-radius: 25px;
+  border: 1px solid #eee;
+  padding: clamp(18px, 3.5vw, 28px);
+}
+
+.md__close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-size: 22px;
+  opacity: 0.7;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.md__close:hover {
+  opacity: 1;
+}
+
+.md__title {
+  margin: 0 0 10px;
+  font-size: clamp(20px, 3.4vw, 26px);
+  font-weight: 800;
+}
+
+.md__text {
+  margin: 15px 0 15px 0px;
+  color: #333;
+}
+
+.md__actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 6px;
+}
+
+.md-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.18s ease;
+}
+
+.md-btn--ghost {
+  color: #5aa0e0;
+  border: 1px solid #5aa0e0;
+  background: #fff;
+  cursor: pointer;
+}
+
+.md-btn--ghost:hover {
+  background: #f3f8ff;
+}
+
+.md-btn--primary {
+  color: #ffffff;
+  background: #28a745;
+  border: 1px solid #28a745;
+  cursor: pointer;
+}
+
+.md-btn--primary:hover {
+  filter: brightness(0.96);
+}

@@ -1,0 +1,55 @@
+<?php
+$adminId = $_SESSION['admin_id'];
+
+$stmt = $conn->prepare("
+  SELECT profile_picture
+  FROM admin
+  WHERE id = ?
+  LIMIT 1
+");
+$stmt->bind_param("i", $adminId);
+$stmt->execute();
+$admin = $stmt->get_result()->fetch_assoc();
+$stmt->close();
+
+$avatarPath = '/PROGNET/images/user-avatar.png';
+
+if (!empty($admin['profile_picture'])) {
+    $avatarPath = $admin['profile_picture'];
+}
+
+?>
+
+<header class="nav-admin">
+  <div class="nav-admin__inner" id="navAdminContainer">
+
+    <!-- Profile -->
+    <div class="nav-profile">
+      <button class="profile-btn" id="profileToggle">
+        <img src="<?= htmlspecialchars($avatarPath) ?>" alt="Avatar" class="avatar">
+        <span class="name">
+          <?= $_SESSION['admin_name'];?>
+        </span>
+        <img class="caret" src="/PROGNET/images/icons/dropdown.svg" alt="">
+      </button>
+
+      <div class="profile-menu" id="profileMenu">
+        <a href="/PROGNET/admin/settings/account-management.php" class="pm-item">
+          <img src="/PROGNET/images/icons/settings.svg" alt="">
+          <span>Account Management</span>
+        </a>
+
+        <a href="/PROGNET/admin/settings/company-profile.php" class="pm-item">
+          <img src="/PROGNET/images/icons/lock.svg" alt="">
+          <span>Company Profile</span>
+        </a>
+
+        <a href="/PROGNET/admin/auth/logout.php" class="pm-item logout">
+          <img src="/PROGNET/images/icons/logout.svg" alt="">
+          <span>Logout</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</header>

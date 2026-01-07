@@ -1,0 +1,46 @@
+/* Order Rejected Page */
+:root {
+  --orange: #e36324;
+  --text: #1a1a1a;
+  --muted: #666;
+  --border: #e6e6e6;
+  --light-bg: #f9f9f9;
+}
+
+.order-rejected-container {
+  margin-top: 80px;
+}
+
+.bk-hero {
+  min-height: calc(100vh - 300px);
+}
+
+.bk-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--muted);
+  border: 2px dashed var(--border);
+  border-radius: 16px;
+  background: var(--light-bg);
+}
+
+.bk-empty p {
+  font-size: 16px;
+  margin: 0 0 20px;
+}
+
+.bk-empty-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: var(--orange);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.bk-empty-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(227, 99, 36, 0.3);
+}

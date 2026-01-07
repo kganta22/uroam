@@ -1,0 +1,172 @@
+a {
+  text-decoration: none;
+}
+
+/* ================================
+   FOOTER BASE
+================================ */
+.footer {
+  width: 100%;
+  background: #d85d18;
+  /* brand orange */
+  color: #fff;
+  padding: 60px 0 30px;
+  font-family: "Solway", serif;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 48px;
+  transition: margin-left 0.3s ease;
+  margin-right: 100px;
+  margin-left: 100px;
+  /* default (no sidebar) */
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 260px;
+}
+
+.footer-col h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 0 12px;
+}
+
+.footer-line {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+/* ================================
+   LINKS (COLUMN A)
+================================ */
+.footer-link {
+  display: block;
+  color: #fff;
+  margin: 16px 0;
+  font-size: 12px;
+  font-weight: 100;
+  transition: opacity 0.2s ease;
+}
+
+.footer-link:hover {
+  font-weight: 500;
+}
+
+/* ================================
+   ADDRESS (COLUMN B)
+================================ */
+.footer-col p {
+  font-size: 12px;
+  margin: 16px 0;
+}
+
+.footer-contact {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 100;
+  transition: opacity 0.2s ease;
+}
+
+.footer-contact:hover {
+  font-weight: 500;
+}
+
+/* Icon circle styling */
+.footer-icon-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-icon-circle img {
+  width: 19px;
+  height: 19px;
+}
+
+/* ================================
+   SOCIAL (COLUMN C)
+================================ */
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 100;
+  transition: opacity 0.2s ease;
+}
+
+.footer-social:hover {
+  font-weight: 500;
+}
+
+/* ================================
+   COPYRIGHT
+================================ */
+.footer-container {
+  margin-left: 100px;
+  margin-right: 100px;
+  transition: margin 0.3s ease;
+}
+
+.footer-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.45);
+  margin-top: 20px;
+}
+
+/* Copyright */
+.footer-copy {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 10px;
+  font-weight: 100;
+}
+
+/* ================================
+   SIDEBAR INTEGRATION
+================================ */
+body.sidebar-expanded .footer-inner {
+  margin-left: calc(260px + 100px);
+}
+
+body.sidebar-collapsed .footer-inner {
+  margin-left: calc(70px + 100px);
+}
+
+/* Sidebar Expanded */
+body.sidebar-expanded .footer-container {
+  margin-left: calc(260px + 100px);
+}
+
+/* Sidebar Collapsed */
+body.sidebar-collapsed .footer-container {
+  margin-left: calc(70px + 100px);
+}
+
+/* ================================
+   RESPONSIVE FOOTER
+================================ */
+@media (max-width: 980px) {
+  .footer-inner {
+    flex-direction: column;
+    margin-left: 40px !important;
+    margin-right: 40px;
+  }
+}
