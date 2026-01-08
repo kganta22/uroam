@@ -34,25 +34,41 @@ $activityDate = isset($payload['activity_date']) ? trim($payload['activity_date'
 
 if ($productId <= 0 || $priceId <= 0 || ($adultCount + $childCount) <= 0 || empty($activityDate)) {
     http_response_code(400);
-    echo json_encode(['success' => false, 'message' => 'Missing or invalid booking data']);
+    echo json_encode([
+        'success' => false, 
+        'message' => 'Missing or invalid booking data',
+        'debug' => [
+            'product_id' => $productId,
+            'price_id' => $priceId,
+            'adult_count' => $adultCount,
+            'child_count' => $childCount,
+            'activity_date' => $activityDate
+        ]
+    ]);
     exit;
 }
 
-// Validate activity date (should be in MM-DD-YYYY HH:MM format)
-$dateTimeParts = explode(' ', $activityDate);
+// Validate activity date (should be in YYYY-MM-DD HH:MM format)
+$dateTimeParts = explode(' ', $activityDate, 2); // Limit to 2 parts only
 if (count($dateTimeParts) < 2) {
     http_response_code(400);
-    echo json_encode(['success' => false, 'message' => 'Activity date and time are required']);
+    echo json_encode(['success' => false, 'message' => 'Activity date and time are required', 'received' => $activityDate]);
     exit;
 }
 
-$datePart = $dateTimeParts[0]; // MM-DD-YYYY
+$datePart = $dateTimeParts[0]; // YYYY-MM-DD
 $timePart = $dateTimeParts[1]; // HH:MM
 
-$dateObj = DateTime::createFromFormat('m-d-Y H:i', $datePart . ' ' . $timePart);
+$dateObj = DateTime::createFromFormat('Y-m-d H:i', $datePart . ' ' . $timePart);
 if (!$dateObj) {
     http_response_code(400);
-    echo json_encode(['success' => false, 'message' => 'Invalid date/time format']);
+    echo json_encode([
+        'success' => false, 
+        'message' => 'Invalid date/time format', 
+        'received' => $activityDate,
+        'datePart' => $datePart,
+        'timePart' => $timePart
+    ]);
     exit;
 }
 $normalizedDateTime = $dateObj->format('Y-m-d H:i:s');
@@ -110,8 +126,11 @@ try {
     $insertStmt = $conn->prepare('INSERT INTO order_request 
         (booking_code, customer_id, product_id, option_name, customer_name, total_adult, total_child, gross_rate, duration, phone, email, purchase_date, activity_date, status) 
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "request")');
-    $purchaseDate = null; // leave null on initial request; will be filled on payment
+    
+    // Use current timestamp for purchase_date since it's NOT NULL in database
+    $purchaseDate = date('Y-m-d H:i:s');
     $durationText = $product['duration_hours'] ? $product['duration_hours'] . ' hours' : null;
+    
     // Types: s booking_code, i customer_id, i product_id, s option_name, s customer_name,
     // i total_adult, i total_child, d gross_rate, s duration, s phone, s email, s purchase_date, s activity_date
     $insertStmt->bind_param(
@@ -130,7 +149,11 @@ try {
         $purchaseDate,
         $normalizedDateTime
     );
-    $insertStmt->execute();
+    
+    if (!$insertStmt->execute()) {
+        throw new Exception('Insert failed: ' . $insertStmt->error);
+    }
+    
     $insertStmt->close();
 
     $conn->commit();
@@ -144,6 +167,10 @@ try {
 } catch (Exception $e) {
     $conn->rollback();
     http_response_code(500);
-    echo json_encode(['success' => false, 'message' => 'Failed to create order request']);
+    echo json_encode([
+        'success' => false, 
+        'message' => 'Failed to create order request',
+        'error' => $e->getMessage()
+    ]);
     exit;
 }

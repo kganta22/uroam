@@ -173,34 +173,31 @@ $bookings = $stmt->get_result();
 
                             <!-- ACTIVITY DATE FILTER -->
                             <div class="bk-filter-block bk-date-block">
-                                <div class="bk-filter-block bk-date-block">
-                                    <div class="bk-filter-header">
-                                        <label class="bk-label bk-filter-label">Activity Date</label>
+                                <div class="bk-filter-header">
+                                    <label class="bk-label bk-filter-label">Activity Date</label>
 
-                                        <a class="bk-clear" onclick="clearDateFilter('activity')"
-                                            style="display: <?= (!empty($_GET['activity_start']) || !empty($_GET['activity_end'])) ? 'block' : 'none' ?>;">
-                                            Clear
-                                        </a>
-                                    </div>
-
-                                    <div class="bk-date-input">
-                                        <input type="text" id="activityRange" class="bk-input bk-filter-input"
-                                            placeholder="From - To" readonly>
-
-                                        <img src="/PROGNET/images/icons/calendar.svg" class="bk-calendar-icon"
-                                            alt="calendar">
-                                    </div>
-
-                                    <!-- hidden input untuk PHP -->
-                                    <input type="hidden" name="activity_start" id="activity_start"
-                                        value="<?= $_GET['activity_start'] ?? '' ?>">
-
-                                    <input type="hidden" name="activity_end" id="activity_end"
-                                        value="<?= $_GET['activity_end'] ?? '' ?>">
-
-
-
+                                    <a class="bk-clear" onclick="clearDateFilter('activity')"
+                                        style="display: <?= (!empty($_GET['activity_start']) || !empty($_GET['activity_end'])) ? 'inline' : 'none' ?>;">
+                                        Clear
+                                    </a>
                                 </div>
+
+                                <div class="bk-date-input">
+                                    <input type="text" id="activityRange" class="bk-input bk-filter-input"
+                                        placeholder="From - To" readonly>
+
+                                    <img src="/PROGNET/images/icons/calendar.svg" class="bk-calendar-icon"
+                                        alt="calendar">
+                                </div>
+
+                                <!-- hidden input untuk PHP -->
+                                <input type="hidden" name="activity_start" id="activity_start"
+                                    value="<?= $_GET['activity_start'] ?? '' ?>">
+
+                                <input type="hidden" name="activity_end" id="activity_end"
+                                    value="<?= $_GET['activity_end'] ?? '' ?>">
+                            </div>
+
                         </form>
 
                     </aside>
@@ -316,7 +313,7 @@ $bookings = $stmt->get_result();
     <script src="/PROGNET/assets/admin/js/sidebarAdmin.js"></script>
     <script src="/PROGNET/assets/admin/js/navbarAdmin.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="/PROGNET/assets/admin/js/bookings.js"></script>
+    <script src="/PROGNET/assets/admin/js/bookings.js?v=<?= time() ?>"></script>
 </body>
 
 </html>

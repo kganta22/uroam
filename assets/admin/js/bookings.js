@@ -51,6 +51,12 @@ function initDateRangePicker(rangeInputId, startInputId, endInputId) {
     const startEl = document.getElementById(startInputId);
     const endEl = document.getElementById(endInputId);
 
+    // Check if elements exist
+    if (!startEl || !endEl) {
+        console.error(`Date range picker elements not found: ${startInputId} or ${endInputId}`);
+        return;
+    }
+
     const startVal = startEl.value;
     const endVal = endEl.value;
 
@@ -85,17 +91,27 @@ function initDateRangePicker(rangeInputId, startInputId, endInputId) {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    initDateRangePicker(
-        "#purchaseRange",
-        "purchase_start",
-        "purchase_end"
-    );
+    // Check if filter form exists (we're on bookings page)
+    const filterForm = document.getElementById('filterForm');
+    if (!filterForm) {
+        console.log('Filter form not found, skipping date picker initialization');
+        return;
+    }
 
-    initDateRangePicker(
-        "#activityRange",
-        "activity_start",
-        "activity_end"
-    );
+    // Wait a bit to ensure all elements are fully rendered
+    setTimeout(() => {
+        initDateRangePicker(
+            "#purchaseRange",
+            "purchase_start",
+            "purchase_end"
+        );
+
+        initDateRangePicker(
+            "#activityRange",
+            "activity_start",
+            "activity_end"
+        );
+    }, 100);
 });
 
 function clearDateFilter(type) {

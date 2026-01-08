@@ -170,9 +170,13 @@ function confirmDate() {
         return;
     }
 
-    const formatted = `${String(selectedDateObj.getMonth() + 1).padStart(2, '0')}-${String(selectedDateObj.getDate()).padStart(2, '0')}-${selectedDateObj.getFullYear()} ${timeInput.value}`;
+    // Format as YYYY-MM-DD HH:MM for PHP compatibility
+    const formatted = `${selectedDateObj.getFullYear()}-${String(selectedDateObj.getMonth() + 1).padStart(2, '0')}-${String(selectedDateObj.getDate()).padStart(2, '0')} ${timeInput.value}`;
     selectedDate = formatted;
-    document.getElementById('summaryDate').textContent = formatted;
+    
+    // Display format: MM-DD-YYYY HH:MM for user
+    const displayFormat = `${String(selectedDateObj.getMonth() + 1).padStart(2, '0')}-${String(selectedDateObj.getDate()).padStart(2, '0')}-${selectedDateObj.getFullYear()} ${timeInput.value}`;
+    document.getElementById('summaryDate').textContent = displayFormat;
     closeDateModal();
     updatePriceDisplay(); // Update button state after date selection
 }
